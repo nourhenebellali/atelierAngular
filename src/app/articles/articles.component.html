@@ -1,0 +1,35 @@
+
+
+<h2>{{ titre }}</h2>
+<div>
+    <label for="articleCount">Nombre d'articles :</label>
+    <input type="text" id="articleCount" [(ngModel)]="articleCount"  (ngModelChange)="onArticleCountChange()">
+ 
+  </div> 
+  <div *ngFor="let article of filteredList"> </div>
+<div *ngFor="let article of listeArticles">
+
+    <ng-container *ngIf="article.categorie!== 'Travail'">
+       
+
+  <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+    <div [ngClass]="{ 'education-article': article.categorie === 'Education' }">
+    <div class="card-header"> Titre : {{article.titre}}</div>
+
+
+    <div class="card-body">
+      
+      <h4 class="card-title">Conetnu: {{article.contenu}}</h4>
+      <p class="card-text">Auteur : {{article.auteur}}</p>
+      <p class="card-text">Date : {{article.date}}</p>
+      <p class="card-text">  Categorie : {{article.categorie}}</p>
+    
+      </div>
+      </div>
+      </div>
+    </ng-container>
+    
+  </div>
+
+
+ 

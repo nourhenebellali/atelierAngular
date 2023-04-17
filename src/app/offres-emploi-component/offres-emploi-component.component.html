@@ -1,0 +1,24 @@
+<form (ngSubmit)="chercherEmploiParEntreprise()">
+    <label for="entreprise">  Recherche par entreprise : </label>
+    <input type="text" id="entreprise" [(ngModel)]="entrepriseRecherchee">
+    <button type="submit">Rechercher</button>
+  </form>
+
+ <section *ngFor="let emploi of listeEmploi, let i=index" class="flex-row">
+    <span *ngIf="emploi.entreprise === entrepriseRecherchee || entrepriseRecherchee === ''">
+    <div class="card-header">reference: {{emploi.reference}}</div>
+    <div class="card-body">
+      <h4 class="card-title">titre: {{emploi.titre}}</h4>
+      <p class="card-text">entrepise: {{emploi.entreprise}}</p>
+
+      <button  type="button" class="btn btn-secondary" [disabled]="emploi.etat === false">Postuler</button>
+ 
+    
+                 <button  type="button" class="btn btn-secondary"  (click)="calculerBilan()">Bilan</button>
+    </div>
+</span>
+</section>
+  
+  
+  
+  
